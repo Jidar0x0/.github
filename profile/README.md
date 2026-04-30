@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/jidar-logo.png" alt="Jidar Logo" width="120" />
+  <img src="assets/jidar-logo.png" alt="Jidar Logo" width="250" />
   <h1>🛡️ Jidar (جـدار)</h1>
   <p><b>The Next-Generation Virtual SecOps Platform for Startups & SMEs</b></p>
   
