@@ -1,68 +1,62 @@
-cd .github
-
-cat << 'EOF' > profile/README.md
 <div align="center">
-  <img src="assets/jidar-logo.png" alt="Jidar Logo" width="300" />
-  <br>
+  <img src="assets/jidar-logo.png" alt="Jidar Logo" width="250" />
   <h1>🛡️ Jidar (جـدار)</h1>
   <p><b>The Next-Generation Virtual SecOps Platform for Startups & SMEs</b></p>
   
-  <p>
-    <img src="https://img.shields.io/badge/Status-Private_Beta-000000.svg?style=for-the-badge&logo=github" alt="Status" />
-    <img src="https://img.shields.io/badge/Security-Zero_Trust-success.svg?style=for-the-badge&logo=security" alt="Security" />
-    <img src="https://img.shields.io/badge/AI_Powered-SIEM-8A2BE2.svg?style=for-the-badge&logo=probot" alt="AI Powered" />
-  </p>
+  [![Status](https://img.shields.io/badge/Status-Private_Beta-blue.svg?style=flat-square)](#)
+  [![Security](https://img.shields.io/badge/Security-Zero_Trust-success.svg?style=flat-square)](#)
 </div>
 
-<br>
+---
 
-<div align="center">
-  <h2>👁️ What is Jidar?</h2>
-  <p><b>Jidar</b> is an innovative cybersecurity platform engineering the next evolution of <b>Security Information and Event Management (SIEM)</b>. <br> By integrating advanced Artificial Intelligence, we empower organizations to detect, analyze, and respond to threats with unprecedented speed and accuracy.</p>
-</div>
+## 👁️ What is Jidar?
 
-<br>
+**Jidar** is an innovative cybersecurity platform engineering the next evolution of **Security Information and Event Management (SIEM)**. By integrating advanced Artificial Intelligence, we empower organizations to detect, analyze, and respond to threats with unprecedented speed and accuracy. 
 
-<div align="center">
-  <h2>🔌 Jidar Official SDKs</h2>
-  <p>Lightweight, production-ready security event ingestion libraries.<br><i>Detection, alerting, and responses happen entirely in the Jidar backend.</i></p>
+Our Virtual SecOps platform is specifically tailored for Startups and SMEs, providing enterprise-grade security without the overhead. 
 
-  | SDK Package | Min Version | Status |
-  | :--- | :--- | :--- |
-  | 🟢 **Node.js** | Node 18+ | ✅ Reference Implementation |
-  | 🐍 **Python** | Python 3.8+ | ✅ Production Pilot |
-  | 🐘 **PHP** | PHP 8.1+ | ✅ Production Pilot |
-  | 🔵 **Go** | Go 1.21+ | ✅ Production Pilot |
-  | ☕ **Java** | JDK 11+ | ✅ Production Pilot |
-  | 🟣 **.NET** | .NET 8+ | ✅ Production Pilot |
-</div>
+---
 
-<br>
+## 🔌 Jidar Official SDKs
 
-<div align="center">
-  <h2>⚡ Rock-Solid Reliability Guarantees</h2>
-  <p>Integrating a security tool should never break your app. Our SDKs are built on a strict contract:</p>
-  <p>
-    ⏱️ <b>Non-blocking & Auto-flush</b> <br>
-    🛡️ <b>Bounded Queue & No-crash</b> <br>
-    🔁 <b>Circuit Breaker & Retry</b> <br>
-    🛑 <b>Graceful Shutdown</b>
-  </p>
-</div>
+To securely feed data into our AI engines, we provide lightweight, production-ready security event ingestion libraries. These SDKs collect security events from your backend (failed logins, suspicious API requests, etc.) and securely transmit them to the Jidar platform.
 
-<br>
+> *Detection, alerting, and automated responses happen entirely in the Jidar backend. The SDKs are zero-overhead data shippers.*
 
-<div align="center">
-  <h2>🔒 Security & Data Privacy (Zero-Leakage)</h2>
-  <p>We operate on a strict Zero-Trust model. SDKs automatically sanitize all metadata <i>before</i> it leaves your infrastructure:</p>
-  <p><b>Auto-Redaction</b> (23 sensitive keys) • <b>Deep Inspection</b> (5 levels) • <b>Immutable Operations</b></p>
-</div>
+### 📦 Supported Ecosystems
+| SDK Package | Min Version | Status |
+| :--- | :--- | :--- |
+| **TypeScript / Node.js** | Node 18+ | ✅ Reference Implementation |
+| **Python** | Python 3.8+ | ✅ Production Pilot |
+| **PHP** | PHP 8.1+ | ✅ Production Pilot |
+| **Go** | Go 1.21+ | ✅ Production Pilot |
+| **Java** | JDK 11+ | ✅ Production Pilot |
+| **.NET** | .NET 8+ | ✅ Production Pilot |
 
-<br>
+---
 
-<div align="center">
-  <h2>🏗️ Architecture Overview</h2>
-</div>
+## ⚡ Rock-Solid Reliability Guarantees
+
+Integrating a security tool should never break your app. Our SDKs are built on a strict reliability contract:
+
+- ⏱️ **Non-blocking & Auto-flush:** Capture methods return instantly. Events are batched (default: 20) and flushed every 5 seconds in the background.
+- 🛡️ **Bounded Queue & No-crash:** Max 1000 events / 10 MB in memory. Internal SDK errors are swallowed and will *never* propagate to your application.
+- 🔁 **Circuit Breaker & Retry:** Exponential backoff with jitter. Stops sending after 5 consecutive failures, with a 5-minute cooldown to protect network resources.
+- 🛑 **Graceful Shutdown:** Ensures pending events are flushed before application exit.
+
+---
+
+## 🔒 Security & Data Privacy (Zero-Leakage)
+
+We operate on a strict Zero-Trust model. Jidar SDKs automatically sanitize all metadata *before* it leaves your infrastructure:
+
+- **Auto-Redaction:** 23 sensitive keys (passwords, tokens, cookies, API keys) are automatically stripped.
+- **Deep Inspection:** Case-insensitive matching and recursive sanitization up to 5 levels deep.
+- **Immutable Operations:** Your original application data structures are never mutated.
+
+---
+
+## 🏗️ Architecture Overview
 ```text
 ┌─────────────────────────────────────────────────────┐
 │                   Your Backend                      │
@@ -74,7 +68,11 @@ cat << 'EOF' > profile/README.md
                   ▼
 ┌─────────────────────────────────────────────────────┐
 │              Jidar SDK Pipeline                     │
-│  [ Sanitizer ] → [ Bounded Queue ] → [ Batched HTTP ]│
+│  ┌──────────┐  ┌──────────┐  ┌───────────────────┐  │
+│  │Sanitizer │→ │ Bounded  │→ │  Batched HTTP     │  │
+│  │(strip    │  │ Queue    │  │  POST /api/logs/  │  │
+│  │ secrets) │  │ (1K/10MB)│  │  + retry / break  │  │
+│  └──────────┘  └──────────┘  └───────────────────┘  │
 └─────────────────┼───────────────────────────────────┘
                   ▼
 ┌─────────────────────────────────────────────────────┐
