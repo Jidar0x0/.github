@@ -1,84 +1,61 @@
 <div align="center">
   <img src="assets/jidar-logo.png" alt="Jidar Logo" width="220" />
   <br><br>
-  
-  [![Status](https://img.shields.io/badge/Status-Private_Beta-blue.svg?style=for-the-badge&color=000000)](#)
-  [![Security](https://img.shields.io/badge/Security-Zero_Trust-success.svg?style=for-the-badge&color=2ea043)](#)
-  [![AI Powered](https://img.shields.io/badge/Powered_by-AI-8A2BE2.svg?style=for-the-badge&color=6e40c9)](#)
+
+  # Jidar
+
+  **Application security built around local protection, trusted policy, and centralized visibility.**
+
+  [Website](https://jidar0x0.com/) · [Security Policy](../SECURITY.md)
 </div>
 
 ---
 
-## 👁️ What is Jidar?
+## About Jidar
 
-> [!IMPORTANT]  
-> **Jidar** is an innovative cybersecurity platform engineering the next evolution of **Security Information and Event Management (SIEM)**. By integrating advanced Artificial Intelligence, we empower organizations to detect, analyze, and respond to threats with unprecedented speed and accuracy. 
+Jidar is building a security platform for web applications. Our current product direction combines protection close to the application with centrally managed policy, security telemetry, alerting, and account management.
 
-Our Virtual SecOps platform is specifically tailored for Startups and SMEs, providing enterprise-grade security without the overhead. 
+We design Jidar around clear trust boundaries, least-privilege access, signed security decisions, privacy-conscious telemetry, and controlled production change.
 
----
+## Platform Areas
 
-## 🔌 Jidar Official SDKs
+- **Application protection** — request inspection and defensive controls close to the protected application.
+- **Policy & device lifecycle** — controlled enrollment, policy delivery, and security-state management.
+- **Security telemetry & alerting** — structured security signals and operational visibility.
+- **Management experience** — site, policy, account, subscription, and security management through the Jidar application.
 
-To securely feed data into our AI engines, we provide lightweight, production-ready security event ingestion libraries. These SDKs collect security events from your backend (failed logins, suspicious API requests, etc.) and securely transmit them to the Jidar platform.
+## Development Status
 
-> [!NOTE]  
-> *Detection, alerting, and automated responses happen entirely in the Jidar backend. The SDKs are strictly zero-overhead data shippers.*
+Jidar is under active development. Features, integrations, compatibility, availability, commercial terms, and release readiness may change until they are formally published for a specific release.
 
-### 📦 Supported Ecosystems
+Only release-specific documentation and explicit customer agreements define supported production capabilities. Experimental, staging, historical, or internal engineering material should not be interpreted as a product commitment.
 
-| SDK Package | Min Version | Status |
-| :--- | :--- | :--- |
-| 🟢 **TypeScript / Node.js** | Node 18+ | ✅ Reference Implementation |
-| 🐍 **Python** | Python 3.8+ | ✅ Production Pilot |
-| 🐘 **PHP** | PHP 8.1+ | ✅ Production Pilot |
-| 🔵 **Go** | Go 1.21+ | ✅ Production Pilot |
-| ☕ **Java** | JDK 11+ | ✅ Production Pilot |
-| 🟣 **.NET** | .NET 8+ | ✅ Production Pilot |
+## Security
 
----
+Security issues should **not** be disclosed through public GitHub issues, discussions, or pull requests.
 
-## ⚡ Rock-Solid Reliability Guarantees
+Please follow our [Security Policy](../SECURITY.md) for responsible disclosure guidance.
 
-Integrating a security tool should never break your app. Our SDKs are built on a strict reliability contract:
+## Repositories
 
-*   ⏱️ **Non-blocking & Auto-flush:** Capture methods return instantly. Events are batched (default: 20) and flushed every 5 seconds.
-*   🛡️ **Bounded Queue & No-crash:** Max 1000 events / 10 MB in memory. Internal SDK errors are swallowed and will *never* propagate to your application.
-*   🔁 **Circuit Breaker & Retry:** Exponential backoff with jitter. Stops sending after 5 consecutive failures, with a 5-minute cooldown.
-*   🛑 **Graceful Shutdown:** Ensures pending events are flushed before application exit.
+Most core engineering repositories are private while Jidar is under active development. Each repository has its own source-of-truth documentation, release status, and licensing terms.
 
----
+A repository being visible or accessible does not by itself grant permission to copy, redistribute, publish, sublicense, or commercially use its contents.
 
-## 🔒 Security & Data Privacy (Zero-Leakage)
+## Legal & Intellectual Property
 
-We operate on a strict Zero-Trust model. Jidar SDKs automatically sanitize all metadata *before* it leaves your infrastructure:
+Jidar is currently the project and brand name and is not represented here as a separately incorporated legal entity.
 
-*   **Auto-Redaction:** 23 sensitive keys (passwords, tokens, cookies, API keys) are automatically stripped.
-*   **Deep Inspection:** Case-insensitive matching and recursive sanitization up to 5 levels deep.
-*   **Immutable Operations:** Your original application data structures are never mutated.
+Unless a specific repository or file explicitly grants additional rights under a stated license, original Jidar source code, documentation, and assets are proprietary to their applicable copyright holders and intended for authorized Jidar development. All rights not expressly granted are reserved.
+
+Third-party software, fonts, libraries, and other dependencies remain subject to their respective licenses and notices.
+
+The Jidar name, logo, and brand assets may not be used in a way that implies endorsement, partnership, or affiliation without written permission.
 
 ---
 
-## 🏗️ Architecture Overview
-```text
-┌─────────────────────────────────────────────────────┐
-│                   Your Backend                      │
-│                                                     │
-│   login_handler():                                  │
-│     if auth_failed:                                 │
-│       jidar.capture_failed_login(email, ip, reason) │
-└─────────────────┼───────────────────────────────────┘
-                  ▼
-┌─────────────────────────────────────────────────────┐
-│              Jidar SDK Pipeline                     │
-│  ┌──────────┐  ┌──────────┐  ┌───────────────────┐  │
-│  │Sanitizer │→ │ Bounded  │→ │  Batched HTTP     │  │
-│  │(strip    │  │ Queue    │  │  POST /api/logs/  │  │
-│  │ secrets) │  │ (1K/10MB)│  │  + retry / break  │  │
-│  └──────────┘  └──────────┘  └───────────────────┘  │
-└─────────────────┼───────────────────────────────────┘
-                  ▼
-┌─────────────────────────────────────────────────────┐
-│        Jidar AI Platform (api.jidar0x0.com)         │
-│     Detection → Alerting → Response → Dashboard     │
-└─────────────────────────────────────────────────────┘
+<div align="center">
+  <strong>Copyright © 2026 Jidar Founding Team. All rights reserved.</strong>
+  <br>
+  <a href="https://jidar0x0.com/">jidar0x0.com</a>
+</div>
