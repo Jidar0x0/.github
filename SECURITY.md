@@ -4,7 +4,7 @@
 
 Please do not report suspected security vulnerabilities through public GitHub issues, discussions, pull requests, or other public channels.
 
-If a Jidar-operated security reporting channel is published on the official Jidar website, use that channel and include enough information for the issue to be reproduced safely.
+Use the official contact channel published at https://jidar0x0.com/ to contact the Jidar team. If a dedicated private security-reporting channel is not currently published, request a private reporting route before sending vulnerability details.
 
 Useful details include:
 
@@ -18,13 +18,13 @@ Do not intentionally access, modify, exfiltrate, destroy, or retain data that do
 
 ## Coordinated Disclosure
 
-Please allow Jidar a reasonable opportunity to investigate and remediate a reported issue before public disclosure. Public disclosure timelines may depend on severity, affected users, release coordination, and third-party dependencies.
+Please allow the Jidar team a reasonable opportunity to investigate and remediate a reported issue before public disclosure. Public disclosure timelines may depend on severity, affected users, release coordination, and third-party dependencies.
 
-Submission of a report does not create an employment, partnership, agency, or contractual relationship with Jidar and does not guarantee compensation, recognition, or participation in a bug bounty program unless separately agreed in writing.
+Submission of a report does not create an employment, partnership, agency, or contractual relationship with the Jidar team and does not guarantee compensation, recognition, or participation in a bug bounty program unless separately agreed in writing.
 
 ## Scope
 
-This policy is intended for Jidar-owned software and services. Third-party services, dependencies, customer-managed infrastructure, and unrelated systems remain governed by their respective owners and policies.
+This policy is intended for software and services developed or operated under the Jidar project. Third-party services, dependencies, customer-managed infrastructure, and unrelated systems remain governed by their respective owners and policies.
 
 ## Sensitive Information
 
