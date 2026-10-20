@@ -44,7 +44,9 @@ A repository being visible or accessible does not by itself grant permission to 
 
 ## Legal & Intellectual Property
 
-Unless a specific repository or file explicitly grants additional rights under a stated license, Jidar source code, documentation, original assets, and related materials are proprietary and all rights are reserved.
+Jidar is currently the project and brand name and is not represented here as a separately incorporated legal entity.
+
+Unless a specific repository or file explicitly grants additional rights under a stated license, original Jidar source code, documentation, and assets are proprietary to their applicable copyright holders and intended for authorized Jidar development. All rights not expressly granted are reserved.
 
 Third-party software, fonts, libraries, and other dependencies remain subject to their respective licenses and notices.
 
@@ -53,7 +55,7 @@ The Jidar name, logo, and brand assets may not be used in a way that implies end
 ---
 
 <div align="center">
-  <strong>© 2026 Jidar. All rights reserved.</strong>
+  <strong>Copyright © 2026 Jidar Founding Team. All rights reserved.</strong>
   <br>
   <a href="https://jidar0x0.com/">jidar0x0.com</a>
 </div>
